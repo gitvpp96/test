@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+ http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+ http://www.springframework.org/schema/context  
+ http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	<context:component-scan base-package="pkg" />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost/javab7605" />
+		<property name="username" value="root" />
+		<property name="password" value="aqua@O_15" />
+	</bean>
+	<bean id="multipartResolver"
+class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+			<value>Tables/user_log.hbm.xml</value>
+			<value>Tables/user_profile.hbm.xml</value>
+			<value>Tables/experience.hbm.xml</value>
+			<value>Tables/timeline.hbm.xml</value>
+			<value>Tables/comments.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<value>hibernate.dialect=org.hibernate.dialect.MySQLDialect
+				hibernate.hbm2ddl.auto=update
+			</value>
+		</property>
+	</bean>
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="d" class="pkg.Dao_implementation">
+		<property name="temp" ref="hibernateTemplate" />
+	</bean>
+	<bean id="s" class="pkg.Service_implementation">
+		<property name="ser" ref="d"/>
+	</bean>
+</beans>
+

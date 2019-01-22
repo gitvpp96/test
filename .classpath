@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/activation.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/cglib-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/com.springsource.org.apache.log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/dom4j.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/javax_mail.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/jmxtools-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/jta.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/mail.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/org.apache.commons.fileupload.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/servlet-api-3.0.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-aop-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-asm-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-aspects-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-beans-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-context-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-context-support-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-core-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-expression-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-instrument-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-instrument-tomcat-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-jdbc-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-jms-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-orm-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-oxm-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-test-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-tx-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-web-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-webmvc-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/vishnu/Spring jars/lib/spring-webmvc-portlet-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Downloads/mysql-connector-java-5.1.23-bin.jar/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

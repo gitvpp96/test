@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 17, 2019 3:39:19 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Tables.comments" table="COMMENTS">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="u_id" type="int">
+            <column name="U_ID" />
+        </property>
+        <property name="p_id" type="int">
+            <column name="P_ID" />
+        </property>
+        <property name="cmt" type="java.lang.String">
+            <column name="CMT" />
+        </property>
+        <property name="u_name" type="java.lang.String">
+            <column name="U_NAME" />
+        </property>
+    </class>
+</hibernate-mapping>

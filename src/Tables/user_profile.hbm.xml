@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 3, 2019 12:08:02 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Tables.user_profile" table="USER_PROFILE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="desig" type="java.lang.String">
+            <column name="DESIG" />
+        </property>
+        <property name="addr" type="java.lang.String">
+            <column name="ADDR" />
+        </property>
+        <property name="bio" type="java.lang.String">
+            <column name="BIO" />
+        </property>
+        <property name="img" type="java.lang.String">
+            <column name="IMG" />
+        </property>
+    </class>
+</hibernate-mapping>
