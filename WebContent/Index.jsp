@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%response.sendRedirect("Login.html");%>
+	hai friendsjkljklkjljkljkljkl
 </body>
 </html>
 
