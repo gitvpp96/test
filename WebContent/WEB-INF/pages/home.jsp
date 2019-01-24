@@ -43,34 +43,36 @@
 									<div class="post-meta">
 										<h6>
 											By <a href="#"> <%
- 	String uname = (String) session.getAttribute("profilename");
- 		out.print(uname);
- %>
-											</a><a href="#">${p.date}</a><a href="#" onclick="myFunction()">3
-												Comments</a><a href="deletepost.html?id=${p.id}">Delete,</a>
+ 	                                        String uname = (String) session.getAttribute("profilename");
+ 		                                    out.print(uname);
+                                                            %>
+											</a> <a href="#">${p.date}</a> <a href="#"
+												onclick="ajaxdltcmt(${p.id})">3 Comments</a> <a
+												href="deletepost.html?id=${p.id}">Delete,</a>
 										</h6>
-									
-										<div id="cmntdiv" class="contact-form-area">
+
+										<div id="cmntdiv${p.id}" style="display: none;" >
 											<h6>
-												<a> haii................................</a>By <a href="#">Vishnu</a>
+												<a>default comment.....</a>
 											</h6>
 										</div>
-										<div>
-										<input onkeyup="check()" type="text" name="cmnt"
-												class="form-control" placeholder="title" required=""
-												id="cmnt"> <label class="btn btn-info btn-file">send
-												<button onclick="ajaxfun()" id="sendbtn"
-													style="display: none;"></button>
-											</label>
+										<div class="contact-form-area">
+										<input type="text" class="form-control"placeholder="title" required="" id="cmnt${p.id}">
+										<input type="hidden" value="${p.id}" id="t_id${p.id}"> 
+									    	<label class="btn btn-info btn-file">send
+												<button onclick="ajaxfun(${p.id})"> </button>
+									    	</label>
 										</div>
+										
+
 									</div>
 									<h2>${p.head}</h2>
 									<p>${p.content}</p>
 									<a href="#">Read More</a>
 								</div>
 							</div>
-							<input type="hidden" id="t_id" value="${p.id}">
-							
+
+
 						</c:forEach>
 					</div>
 				</div>
@@ -101,51 +103,66 @@
 
 	<script type="text/javascript">
 		//default run script
-		var x = document.getElementById("cmntdiv");
-		x.style.display = "none";
+	//	ajaxdltcmt();
 
-		document.getElementById("sendbtn").disabled = true;
 	</script>
 	<script>
-		function myFunction() {
-			var x = document.getElementById("cmntdiv");
-			if (x.style.display === "none") {
-				ajaxdltcmt();
-				$("#cmntdiv").slideDown("slow");
-			} else {
-				$("#cmntdiv").slideUp("slow");
-			}
-		}
-		function check() {
-			var c = document.getElementById("cmnt").value;
-			if (c != "") {
-				document.getElementById("sendbtn").disabled = false;
 
-			} else {
-				document.getElementById("sendbtn").disabled = true;
-			}
+		function ajaxfun(p_id) { //--------------insert enterd comments and show comments
+			var v = p_id;
+			var p = $("#t_id"+v).val();
+			var x = $("#cmnt"+v).val();
+			
+			$.ajax({
+				type : "GET",
+				url : "ajax.html",
+				data : {
+					t_id : p,
+					cmnt : x
+				},
+				success : function(response) {
+					$("#cmntdiv"+v).html(response);
+				}
+			});
 		}
-		function ajaxfun(){
-			var v = $("#t_id").val();
-			var x = $("#cmnt").val();
-			$.ajax({type:"GET",
-					url:"ajax.html",
-					data: { t_id : v, cmnt: x },
-				success:function(response){
-					$("#cmntdiv").html(response);
+		function ajaxdltcmt(p_id) {//-------------- show comments
+			var v = p_id;
+			$.ajax({
+				type : "GET",
+				url : "ajax1.html",
+				data : {
+					p_id : v
+				},
+				success : function(response) {
+					$("#cmntdiv"+v).html(response);
+					var x = document.getElementById("cmntdiv"+v);
+					if (x.style.display =="none") {
+						
+						$("#cmntdiv"+v).slideDown("slow");
+					} else {
+						$("#cmntdiv"+v).slideUp("slow");
+					} 
+					
 				}
-			});	
-	}
-		function ajaxdltcmt(){
-			var v = $("#t_id").val();
-			$.ajax({type:"GET",
-					url:"ajax1.html",
-					data: { p_id : v},
-				success:function(response){
-					$("#cmntdiv").html(response);
+			});
+		}
+		function dltfun(c_id , p_id) {
+			var c = c_id;
+			var v = p_id;
+
+			$.ajax({
+				type : "GET",
+				url : "cmntdlt.html",
+				data : {
+					c_id : c,
+					p_id : v
+				},
+				success : function(response) {
+					$("#cmntdiv"+v).html(response);
 				}
-			});	
-	}
+			});
+			
+		}
 	</script>
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/popper.min.js"></script>

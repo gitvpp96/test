@@ -83,7 +83,7 @@ public class Dao_implementation implements Dao_interface {
 
 	@Override
 	public List comments(int p_id) {
-		List li = temp.find("from comments c where c.id=?",p_id);
+		List li = temp.find("from comments c where c.p_id=?",p_id);
 		return li;
 	}
 

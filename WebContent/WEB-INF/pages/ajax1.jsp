@@ -10,9 +10,8 @@
 <body>
 	<c:forEach items="${List.list1}" var="p">
 		<h6>
-			<a> ${p.cmt}</a>By <a href="#">${p.u_name}</a>
-			<input type="hidden" value="${p.id}" id="c_id">
-		</h6>
+			<a> ${p.cmt}</a>By <a href="#">${p.u_name}</a><a href="#" onclick="dltfun(${p.id},${p.p_id})">Delete</a> 
+		</h6>		
 	</c:forEach>
 </body>
 </html>

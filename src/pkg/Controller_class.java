@@ -88,11 +88,19 @@ public class Controller_class {
 		int id = (int) session.getAttribute("id");
 		System.out.println(id);
 		List li = ser.timeline(id);
+
 	
 		
 		Iterator it = li.iterator();	
 		HashMap m = new HashMap();
 		m.put("list", li);
+		
+		while(it.hasNext()) {
+			timeline t = (timeline)it.next();
+			System.out.println(t.getId());
+			
+			
+		}
 
 
 		return new ModelAndView("home", "List", m);
@@ -172,7 +180,9 @@ public class Controller_class {
 	public ModelAndView cmnt_ajax(@RequestParam int t_id,
 							@RequestParam String cmnt,
 			                HttpSession session) {
-	
+		
+	    System.out.println(t_id+"--()--"+cmnt); 
+		
 		int u_id =(int) session.getAttribute("id"); 
 		String u_name = (String) session.getAttribute("profilename");
 		comments c = new comments();
@@ -184,6 +194,7 @@ public class Controller_class {
 		ser.insert(c);
 	    
 		List li = ser.comments(t_id);
+
 		HashMap m = new HashMap();
 		m.put("list1",li);
 	
@@ -194,7 +205,7 @@ public class Controller_class {
 	@RequestMapping(value = "/ajax1.html", method = RequestMethod.GET) // ------------------------------------------ajax post entry
 	public ModelAndView cmnt_view_ajax( @RequestParam int p_id) {
 	
-	    System.out.println(p_id);
+	    System.out.println(p_id+"p_id");
 		
 		List li = ser.comments(p_id);
 		HashMap m = new HashMap();
@@ -202,6 +213,21 @@ public class Controller_class {
 	
 	
 		return new ModelAndView("ajax1", "List", m);
+	}
+	@RequestMapping(value = "/cmntdlt.html", method = RequestMethod.GET) // ------------------------------------------ajax show comments
+	public ModelAndView dltcmnt( @RequestParam int c_id,int p_id) {
+	
+	    System.out.println(p_id+"p_id");
+	    System.out.println(c_id+"c_id");
+	    comments c = new comments();
+	    c.setId(c_id);
+	    ser.delete(c);
+		
+		List li = ser.comments(p_id);
+		HashMap m = new HashMap();
+		m.put("list1",li);
+
+		return new ModelAndView("ajax", "List", m);
 	}
 
 }
