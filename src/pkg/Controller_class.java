@@ -227,7 +227,7 @@ public class Controller_class {
 		HashMap m = new HashMap();
 		m.put("list1",li);
 
-		return new ModelAndView("ajax", "List", m);
+		return new ModelAndView("ajax1", "List", m);
 	}
 
 }

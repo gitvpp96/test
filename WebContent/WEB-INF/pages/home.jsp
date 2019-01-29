@@ -7,17 +7,11 @@
 <meta charset="UTF-8">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
+<meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <title>Home</title>
 
-<!-- Favicon -->
 <link rel="icon" href="img/core-img/favicon.ico">
-
-<!-- Core Stylesheet -->
 <link href="style.css" rel="stylesheet">
 <link href="css/mystyle.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
@@ -26,9 +20,7 @@
 
 <body>
 	<%@ include file="header.jsp"%>
-
-	<!-- ***** Blog Area Start ***** -->
-	<section class="blog-area section_padding_100">
+<section class="blog-area section_padding_100">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-8">
@@ -49,7 +41,7 @@
 											</a> <a href="#">${p.date}</a> <a href="#"
 												onclick="ajaxdltcmt(${p.id})">3 Comments</a> <a
 												href="deletepost.html?id=${p.id}">Delete,</a>
-										</h6>
+	               						</h6>
 
 										<div id="cmntdiv${p.id}" style="display: none;" >
 											<h6>
@@ -63,16 +55,11 @@
 												<button onclick="ajaxfun(${p.id})"> </button>
 									    	</label>
 										</div>
-										
-
 									</div>
 									<h2>${p.head}</h2>
 									<p>${p.content}</p>
-									<a href="#">Read More</a>
 								</div>
 							</div>
-
-
 						</c:forEach>
 					</div>
 				</div>
@@ -109,21 +96,29 @@
 	<script>
 
 		function ajaxfun(p_id) { //--------------insert enterd comments and show comments
+			
+			
 			var v = p_id;
 			var p = $("#t_id"+v).val();
 			var x = $("#cmnt"+v).val();
 			
-			$.ajax({
-				type : "GET",
-				url : "ajax.html",
-				data : {
-					t_id : p,
-					cmnt : x
-				},
-				success : function(response) {
-					$("#cmntdiv"+v).html(response);
-				}
-			});
+			if(x=="" || x== null){
+				return;
+
+			}else{
+				
+				$.ajax({
+					type : "GET",
+					url : "ajax.html",
+					data : {
+						t_id : p,
+						cmnt : x
+					},
+					success : function(response) {
+						$("#cmntdiv"+v).html(response);
+					}
+				});
+			}
 		}
 		function ajaxdltcmt(p_id) {//-------------- show comments
 			var v = p_id;

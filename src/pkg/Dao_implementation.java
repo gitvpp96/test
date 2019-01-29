@@ -3,6 +3,10 @@ package pkg;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import Tables.*;
@@ -66,6 +70,15 @@ public class Dao_implementation implements Dao_interface {
 	@Override
 	public void delete(Tables.timeline p) {
 		temp.delete(p);
+		SessionFactory sf=temp.getSessionFactory();
+		Session ses=sf.openSession();
+		Transaction t=ses.beginTransaction();
+		String qry="DELETE FROM comments WHERE p_id=?";
+		Query q=ses.createQuery(qry);
+		q.setParameter(0, p.getId());
+		q.executeUpdate();
+		t.commit();
+		ses.close();
 		
 	}
 
